@@ -11,7 +11,7 @@ class Header extends React.Component {
     
     return ( 
     <div className="Header">
-      <p>header</p>
+      <p>Machines ! </p>
     </div>
     );
   }

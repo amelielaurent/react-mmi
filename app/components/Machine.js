@@ -18,11 +18,10 @@ class Machine extends React.Component {
         <p>hello</p>
         
       </div>
-      <div className = {this.props.isactive ? "machine active" : "machine" }>
-      
-      <button>
-        {this.props.name}
-      </button>
+      <div className = {this.props.isActive ? "machine active" : "machine" }>
+      {this.props.name}
+      <br/>
+      <button type="button" onClick={this.handleClick}> CLIC </button>
       </div>
     </div>
     );
