@@ -6,6 +6,12 @@
 import React from 'react';
 
 class Machine extends React.Component {
+  
+  handleClick (){
+    console.log('Woot.')
+    console.log(this.props.name)
+  }
+  
   render() {
     // Dans tous les cas, afficher
     
@@ -21,7 +27,7 @@ class Machine extends React.Component {
       <div className = {this.props.isActive ? "machine active" : "machine" }>
       {this.props.name}
       <br/>
-      <button type="button" onClick={this.handleClick}> CLIC </button>
+      <button type="button" className="btn" onClick={(e) => this.handleClick(e)}> CLIC </button>
       </div>
     </div>
     );

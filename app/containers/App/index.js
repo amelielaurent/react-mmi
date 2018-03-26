@@ -18,16 +18,19 @@ class App extends React.Component {
     this.state = { //On définit dans App un state
       machines: [ // On crée un objet machine avec plusieurs valeurs
          {
+          id:0,
           name: "Machine à café",
           isActive: true
         },
         
          {
+          id:1,
           name: "Machine à chocolat chaud",
           isActive: false
         },
         
          {
+          id:2,
           name: "Machine à thé",
           isActive: false
         }
@@ -55,7 +58,7 @@ class App extends React.Component {
         this.state.machines.map(machine =>
         //console.log(machine.name)
         
-        <Machine name={machine.name} isActive={machine.isActive} />
+        <Machine name={machine.name} isActive={machine.isActive} key={machine.id} />
         
         )  
       }
