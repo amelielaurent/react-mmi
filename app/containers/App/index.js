@@ -35,6 +35,7 @@ class App extends React.Component {
           isActive: false
         }
       ]
+      
     };
     
     console.log(this.state);
@@ -51,6 +52,7 @@ class App extends React.Component {
       // Un return doit retourner un seul élément du DOM
       // Si on veut afficher plusieurs éléments adjacents,
       // On devra donc les encapsuler dans une DIV parente.
+      //Pour la prochaine fois faire le readme qu'il va donner sur git (se sera noté), expliquer la prochaine étape, guider
       <div>
       <Header/>
       
