@@ -4,6 +4,7 @@
  *
  */
 import React from 'react';
+import Toggle from 'react-toggle'
 
 class Machine extends React.Component {
   
@@ -31,6 +32,7 @@ class Machine extends React.Component {
   render() {
     // Dans tous les cas, afficher
     //Enlever les divs qui affichait coucou
+    // <button type="button" className="btn" onClick={(e) => this.handleClick(e)}> {this.state.isActive ? "ON" : "OFF" }  </button>
     return ( 
     <div className="Machine hey"> 
       <br/>
@@ -38,8 +40,12 @@ class Machine extends React.Component {
       {this.props.name}
       <br/>
       
-      <button type="button" className="btn" onClick={(e) => this.handleClick(e)}> {this.state.isActive ? "ON" : "OFF" }  </button>
-      
+     
+        <Toggle
+        defaultChecked={this.state.isActive}
+        aria-label='No label tag'
+        className='custom-classname'
+        onClick={this.handleClick} />
       </div>
     </div>
     );
