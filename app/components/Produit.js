@@ -4,22 +4,47 @@
  *
  */
 import React, { Component } from "react";
+import GoogleMapReact from 'google-map-react';
+import {
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+} from "react-google-maps";
 
-class Produits extends Component {
-  render() {
-    return (
-      <div>
-        <h2>page produit HELLO</h2>
-        <p>Cras facilisis urna ornare ex volutpat, et
-        convallis erat elementum. Ut aliquam, ipsum vitae
-        gravida suscipit, metus dui bibendum est, eget rhoncus nibh
-        metus nec massa. Maecenas hendrerit laoreet augue
-        nec molestie. Cum sociis natoque penatibus et magnis
-        dis parturient montes, nascetur ridiculus mus.</p>
  
-        <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
-      </div>
+const AnyReactComponent = ({ text }) => <div style={{
+    position: 'relative', color: 'white', background: 'pink',
+    height: 40, width: 60, top: -20, left: -30,    
+  }}>
+    {text}
+  </div>;
+ 
+ const MY_API_KEY = "AIzaSyC0YVxszS2xaBSLtw3gOz0kCvFO46tksFw";
+ 
+class Produits extends Component {
+  static defaultProps = {
+    center: {lat: 59.95, lng: 30.33},
+    zoom: 11
+  };
+  
+   render() {
+    return (
+      <GoogleMapReact
+      bootstrapURLKeys={{ key: [MY_API_KEY] }}
+        defaultCenter={this.props.center}
+        defaultZoom={this.props.zoom}
+      >
+        <AnyReactComponent
+          lat={59.955413}
+          lng={30.337844}
+          text={'Kreyser Avrora'}
+        />
+        
+        
+      </GoogleMapReact>
+      
     );
+   
   }
 }
  
