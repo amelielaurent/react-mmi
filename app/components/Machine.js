@@ -4,7 +4,7 @@
  *
  */
 import React from 'react';
-import Toggle from 'react-toggle'
+import Toggle from 'react-toggle';
 
 class Machine extends React.Component {
   
@@ -34,6 +34,8 @@ class Machine extends React.Component {
     //Enlever les divs qui affichait coucou
     // <button type="button" className="btn" onClick={(e) => this.handleClick(e)}> {this.state.isActive ? "ON" : "OFF" }  </button>
     return ( 
+      
+      
     <div className="Machine hey"> 
       <br/>
       <div className = {this.state.isActive ? "machine active" : "machine"} >

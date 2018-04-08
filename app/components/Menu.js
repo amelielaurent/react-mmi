@@ -7,14 +7,10 @@ import React from 'react';
 
 
 // On importe ici les composants qu'on veut afficher
-import Header from '../../components/header.js';
-import Footer from '../../components/footer.js';
-import Machine from '../../components/Machine.js';
-import Main from '../../components/Main.js';
-import Layout from '../../components/Layout.js';
-import Produit from '../../components/Produit.js';
-import Menu from '../../components/Menu.js';
-import CSS from '../../css/styles.css';
+
+import Machine from './Machine.js';
+import Produit from './Produit.js';
+
 // On peut aussi importer du CSS de la meme facon.
 
 import { BrowserRouter, Router, Route, browserHistory } from 'react-router';
@@ -65,8 +61,18 @@ class App extends React.Component {
       // On devra donc les encapsuler dans une DIV parente.
       //Pour la prochaine fois faire le readme qu'il va donner sur git (se sera noté), expliquer la prochaine étape, guider
       <div>
-      <Main/>
-    
+   
+      
+      {
+        this.state.machines.map(machine =>
+        //console.log(machine.name)
+        
+        <Machine name={machine.name} isActive={machine.isActive} key={machine.id} />
+        
+        )  
+      }
+      
+      
       </div>
     );
   }
