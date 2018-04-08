@@ -19,7 +19,7 @@ const AnyReactComponent = ({ text }) => <div style={{
     {text}
   </div>;
  
- const MY_API_KEY = "AIzaSyC0YVxszS2xaBSLtw3gOz0kCvFO46tksFw";
+const MY_API_KEY = "AIzaSyAPfcEXQXk6mwaXUpP2i7dFS0gtLEAzjIo";
  
 class Produits extends Component {
   static defaultProps = {
@@ -39,9 +39,9 @@ class Produits extends Component {
           lng={30.337844}
           text={'Kreyser Avrora'}
         />
-        
-        
+
       </GoogleMapReact>
+
       
     );
    
