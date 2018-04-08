@@ -4,18 +4,20 @@
     text-align: center;
     border-bottom: 4px solid purple;
      text-transform: uppercase;
+     padding:20px;
 }
 
 .machine.active {
     color: blue;
     background-color: white;
+    padding:20px;
 }
 
 .Header, .Footer {
     background: pink;
     text-align: center;
     font-weight: bold;
-    color: purple;
+    color: grey;
     font-size: 20px;
 }
 
@@ -189,12 +191,12 @@ h1 {
 }
 
 .home {
-  background-color: #FFF;
+  background-color: #FFE4E1;
   padding: 20px;
   margin-left:30px;
   margin-right:30px;
 }
 
-h2 {
+h2, h1 {
   color: purple;
 }
