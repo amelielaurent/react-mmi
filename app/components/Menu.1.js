@@ -9,7 +9,6 @@ import React from 'react';
 // On importe ici les composants qu'on veut afficher
 
 import Machine from './Machine.js';
-import Addmachine from './Addmachine.js';
 import Produit from './Produit.js';
 
 // On peut aussi importer du CSS de la meme facon.
@@ -21,6 +20,7 @@ class App extends React.Component {
     constructor(props) {
     super(props);
     this.handleStatusChange = this.handleStatusChange.bind(this);
+    this.countMachines = this.countMachines.bind(this);
     this.state = { //On définit dans App un state
       machines: [ // On crée un objet machine avec plusieurs valeurs
          {
@@ -68,11 +68,15 @@ class App extends React.Component {
    // 3. On applique cette nouvelle collection au state
    this.setState({ machines });
  }
+  countMachines () {
+  console.log(this.state.machines);
+    const machinesToRender = this.state.machines.filter(machine => machine.isActive);
+    const machineSize = machinesToRender.length; 
+    return machineSize;
+  }
   
   render() {
-    console.log(this.state.machines);
-    const machinesToRender = this.state.machines.filter(machine => machine.isActive);
-    const numRows = machinesToRender.length;
+    
     return (
         
       // Un return doit retourner un seul élément du DOM
@@ -83,10 +87,8 @@ class App extends React.Component {
       
       <div>
         <div>
-        <p>Nombre de machines actives = {numRows}</p>
-        {machinesToRender.map((machine) => {
-            return <p>{ machine.name }</p>
-        })}
+        nb machine : 
+        {this.state.countMachines()}
       </div>
       
       {
