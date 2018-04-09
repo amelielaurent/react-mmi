@@ -19,6 +19,7 @@ import { BrowserRouter, Router, Route, browserHistory } from 'react-router';
 class App extends React.Component {
     constructor(props) {
     super(props);
+    this.handleStatusChange = this.handleStatusChange.bind(this);
     this.state = { //On définit dans App un state
       machines: [ // On crée un objet machine avec plusieurs valeurs
          {
@@ -45,14 +46,26 @@ class App extends React.Component {
       
     };
     
-    console.log(this.state);
-    console.log(Object.keys(this.state.machines).map(obj => {
-      var rObj = {};
-      rObj[obj.key] = obj.value;
-      return rObj;
-    }));
+    // console.log(this.state);
+    // console.log(Object.keys(this.state.machines).map(obj => {
+    //   var rObj = {};
+    //   rObj[obj.key] = obj.value;
+    //   return rObj;
+    // }));
+  
     
   }
+  // Méthode pour activer une machine
+ handleStatusChange(key) {
+    // 1. On copie le state existant
+    const machines = { ...this.state.machines };
+    // 2. On modifie le status de CETTE machine
+   machines[key].isActive = true;
+   // Pour vérifier la nouvelle collection dans la console :
+   console.log({ machines });
+   // 3. On applique cette nouvelle collection au state
+   this.setState({ machines });
+ }
   
   render() {
     return (
@@ -64,13 +77,23 @@ class App extends React.Component {
    
       
       {
-        this.state.machines.map(machine =>
+        /*this.state.machines.map(machine =>
         //console.log(machine.name)
         
-        <Machine name={machine.name} isActive={machine.isActive} key={machine.id} />
+        <Machine name={machine.name} isActive={machine.isActive} key={machine.id} position={machine.position.lat, machine.position.lng} />
         
-        )  
+        ) */ 
       }
+      
+      {
+      Object
+        .keys(this.state.machines)
+        .map(key => <Machine name={this.state.machines[key].name}
+                 key={this.state.machines[key].id}
+                 index={this.state.machines[key].id}
+                 handleStatusChange={this.handleStatusChange}
+                 isActive={this.state.machines[key].isActive}/>
+         )}
       
       
       </div>

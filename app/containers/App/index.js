@@ -35,14 +35,14 @@ class App extends React.Component {
          {
           id:1,
           name: "Machine à chocolat chaud",
-          position: { lat: -85.397, lng: 100.644 },
+          position: { lat: -34.721, lng: 100.644 },
           isActive: false
         },
         
          {
           id:2,
           name: "Machine à thé",
-          position: { lat: -20.255, lng: 50.258 },
+          position: { lat: -34.024, lng: 50.258 },
           isActive: false
         }
       ]

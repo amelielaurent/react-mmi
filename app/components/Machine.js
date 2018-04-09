@@ -14,10 +14,10 @@ class Machine extends React.Component {
     this.state = {isActive: true};
 
     // This binding is necessary to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this);
+    //this.handleClick = this.handleClick.bind(this);
   }
   
-  handleClick (){
+  /*handleClick (){
     console.log('Woot.')
     console.log(this.props.name)
     // e.preventDefault();
@@ -27,7 +27,14 @@ class Machine extends React.Component {
     this.setState(prevState => ({
       isActive: !prevState.isActive
     }));
-  }
+  }*/
+  
+  onToggleClick() {
+  // On envoie l'index à la méthode qui changera la valeur
+    // La méthode et son argument sont tous les deux accessibles
+    // via des props qui ont été passées au composant
+    this.props.handleStatusChange(this.props.index);
+   }
   
   render() {
     // Dans tous les cas, afficher
@@ -38,16 +45,21 @@ class Machine extends React.Component {
       
     <div className="Machine hey"> 
       <br/>
-      <div className = {this.state.isActive ? "machine active" : "machine"} >
+      <div className = {this.props.isActive ? "machine active" : "machine"} >
       {this.props.name}
       <br/>
       
      
-        <Toggle
+        {<Toggle
         defaultChecked={this.state.isActive}
         aria-label='No label tag'
         className='custom-classname'
-        onClick={this.handleClick} />
+         onClick={(e) => this.onToggleClick(e)} />
+        }
+         <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn">   Activer
+           </button>
+        
+        
       </div>
     </div>
     );
