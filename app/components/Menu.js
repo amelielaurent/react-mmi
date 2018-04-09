@@ -60,7 +60,7 @@ class App extends React.Component {
     // 1. On copie le state existant
     const machines = { ...this.state.machines };
     // 2. On modifie le status de CETTE machine
-   machines[key].isActive = true;
+   machines[key].isActive = !machines[key].isActive ;
    // Pour vérifier la nouvelle collection dans la console :
    console.log({ machines });
    // 3. On applique cette nouvelle collection au state

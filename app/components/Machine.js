@@ -50,13 +50,13 @@ class Machine extends React.Component {
       <br/>
       
      
-        {<Toggle
+        {/*<Toggle
         defaultChecked={this.state.isActive}
         aria-label='No label tag'
         className='custom-classname'
-         onClick={(e) => this.onToggleClick(e)} />
-        }
-         <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn">   Activer
+         onClick={(e) => this.onToggleClick(e)}/>
+        */}
+         <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn"> {this.props.isActive ? "Désactiver" : "Activer"}
            </button>
         
         
