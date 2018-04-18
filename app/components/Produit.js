@@ -9,7 +9,7 @@ import {
 } from "react-google-maps";
 import GoogleMapReact from 'google-map-react';
 const AnyReactComponent = ({ text }) =>  <div style={{
-    position: 'relative', color: 'white', background: 'lightpink',
+    position: 'relative', color: 'white', background: '#F59238',
     height: 50, width: 60, top: -20, left: -30, padding: 10,   
   }}>
     {text}

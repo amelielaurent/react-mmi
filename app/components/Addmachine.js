@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Addmachine extends React.Component {
+class AddMachine extends React.Component {
     constructor (props) {
         super(props);
         
@@ -14,7 +14,6 @@ class Addmachine extends React.Component {
     }
     
   render() {
-    // Dans tous les cas, afficher
     
     return ( 
     <form ref={(input) => this.machineForm = input} className="machine-edit" onSubmit="">
@@ -30,4 +29,4 @@ class Addmachine extends React.Component {
 }
 
 // Le composant sera accessible avec le nom "Machine"
-export default Addmachine;
+export default AddMachine;

@@ -20,7 +20,7 @@ class Main extends Component {
         <HashRouter>
         <div>
         <Header/>
-          <h1>Mes magnifiques machines</h1>
+          <h1>Nos machines à café</h1>
           <ul className="header">
             <li><NavLink to="/Home">Home</NavLink></li>
             <li><NavLink to="/Menu">Toutes nos machines</NavLink></li>
