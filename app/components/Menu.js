@@ -74,7 +74,8 @@ addMachineToState(machine) {
      // 1. On copie le state existant
      const machines = { ...this.state.machines };
     //event.target = machines[machine].newMachine;
-    machines.newMachine = machines.addMachineToState;
+     machines.newMachine = machine;
+    
    // On applique au state
     this.setState({ machines });
      
