@@ -26,7 +26,7 @@ class Produit extends Component {
 
   render() {
     return (
-      // Important! Always set the container height explicitly
+      // Obliger de mettre une taille
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBU_IEeDtk0fIKfm18yj8bD6DDaJ0N-3e4" }}

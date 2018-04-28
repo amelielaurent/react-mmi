@@ -54,8 +54,7 @@ class App extends React.Component {
     //   return rObj;
     // }));
   
-  //Initialisation du nombre à O.
-     this.numRows = 0;
+ 
   }
   // Méthode pour activer une machine
  handleStatusChange(key) {
@@ -70,47 +69,45 @@ class App extends React.Component {
  }
   
   render() {
-    console.log(this.state.machines);
-    const machinesToRender = this.state.machines.filter(machine => machine.isActive);
-    const numRows = machinesToRender.length;
+    // Calcul des compteurs
+    const machinesIds = Object.keys(this.state.machines);
+    const totalActive = machinesIds.reduce((prevTotal, key) => {
+    const machine = this.state.machines[key];
+    const isAvailable = machine && machine.isActive;
+    // On incrémente le compteur à chaque fois que l'on trouve une machine active
+    return isAvailable ? prevTotal + 1 : prevTotal;
+    }, 0);
+    const total = machinesIds.length;
+    
     return (
+      
+      
+      <div className="main">
         
-      // Un return doit retourner un seul élément du DOM
-      // Si on veut afficher plusieurs éléments adjacents,
-      // On devra donc les encapsuler dans une DIV parente.
-      //Pour la prochaine fois faire le readme qu'il va donner sur git (se sera noté), expliquer la prochaine étape, guider
-      
-      
-      <div>
-        <div>
-        <p>Nombre de machines actives = {numRows}</p>
-        {machinesToRender.map((machine) => {
-            return <p>{ machine.name }</p>
-        })}
-      </div>
-      
-      {
-        /*this.state.machines.map(machine =>
-        //console.log(machine.name)
+          {/*<AddMachine addMachineToState={this.addMachineToState}/>*/}
+          {/*Compteurs*/}
+          <div className="counter">
+            <strong>{totalActive}</strong> / <strong>{total}</strong> Machines actives
+          </div>
+          {/*Conteneur de notre liste*/}
+          <div className="machines-list">
+            {/*Boucle sur notre collection de machines*/}
+            {
+              Object
+                .keys(this.state.machines)
+                .map(key =>
+                // Le composant Machine s'affichera autant de fois
+                // qu'il y a d'objets dans la collection.
+                <Machine name={this.state.machines[key].name}
+                         key={this.state.machines[key].id}
+                         index={this.state.machines[key].id}
+                         handleStatusChange={this.handleStatusChange}
+                         isActive={this.state.machines[key].isActive}/>
+              )}
+          </div>
         
-        <Machine name={machine.name} isActive={machine.isActive} key={machine.id} position={machine.position.lat, machine.position.lng} />
-        
-        ) */ 
-      }
-      
-      {
-      Object
-        .keys(this.state.machines)
-        .map(key => <Machine name={this.state.machines[key].name}
-                 key={this.state.machines[key].id}
-                 index={this.state.machines[key].id}
-                 handleStatusChange={this.handleStatusChange}
-                 isActive={this.state.machines[key].isActive}
-            />
-         )}
-      
-      
-      </div>
+</div>
+       
     );
   }
   

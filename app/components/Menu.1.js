@@ -1,6 +1,6 @@
 /**
  *
- * App.js
+ * Menu1.js
  *
  */
 import React from 'react';

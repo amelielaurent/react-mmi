@@ -215,3 +215,8 @@ h2, h1 {
 .malegende {
   background-color: #F59238;
 }
+
+.counter {
+  text-align: center;
+  font-size: 1.4em;
+}
