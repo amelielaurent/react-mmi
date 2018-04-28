@@ -67,9 +67,17 @@ class App extends React.Component {
    // 3. On applique cette nouvelle collection au state
    this.setState({ machines });
  }
+ 
+  // Méthode pour ajouter un formulaire
+  addMachineToState(machine) {
+    console.log("addMachineToState");
+    console.log(machine);
+}
+ 
   
   render() {
     // Calcul des compteurs
+    
     const machinesIds = Object.keys(this.state.machines);
     const totalActive = machinesIds.reduce((prevTotal, key) => {
     const machine = this.state.machines[key];
@@ -104,6 +112,9 @@ class App extends React.Component {
                          handleStatusChange={this.handleStatusChange}
                          isActive={this.state.machines[key].isActive}/>
               )}
+          </div>
+          <div className="counter">
+             Nombre total de machines : <strong>{total}</strong> 
           </div>
         
 </div>
