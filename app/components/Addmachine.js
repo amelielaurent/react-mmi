@@ -1,32 +1,36 @@
+/***** AddMachine.js *****/
+
 import React from 'react';
 
-class AddMachine extends React.Component {
-    constructor (props) {
-        super(props);
-        
-        const machine = {
-            name: this.name.value,
-            status: this.status.value
-        }
-        
-        this.props.addMachine(machine);
-        this.machineForm.reset();
-    }
-    
+class AddMachineForm extends React.Component {
+  onAddClick(event) {
+    // Empêcher le rechargement de la page
+    event.preventDefault();
+
+    // On stocke les valeurs du formulaire dans une variable newMachine
+    const newMachine = {
+      name: this.name.value,
+      status: this.status.value,
+    };
+
+    // On envoie cette variable via des props à la méthode addMachineToState()
+    // ...
+    this.props.addMachineToState(newMachine);
+  }
+
   render() {
-    
-    return ( 
-    <form ref={(input) => this.machineForm = input} className="machine-edit" onSubmit="">
-                <input ref={(input) => this.name = input} type="text" placeholder="Nom machine" />
-                <select ref={(input) => this.status = input}>
-                    <option value="active">Actif</option>
-                    <option value="inactive">Inactif</option>
-                </select>
-                <button type="submit">Ajouter</button>
-    </form>
-    );
+    return (
+      // On a passé addMachineToState en props depuis App
+      <form ref={(input) => this.machineForm = input} onSubmit={(e) => this.onAddClick(e)} className="add-machine-form" >
+        <input ref={(input) => this.name = input} type="text"  placeholder="Nom de la machine" />
+        <select ref={(input) => this.status = input}>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+        <button type="submit" className="btn">+ Ajouter une machine</button>
+      </form>
+    )
   }
 }
 
-// Le composant sera accessible avec le nom "Machine"
-export default AddMachine;
+export default AddMachineForm;

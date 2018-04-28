@@ -9,7 +9,7 @@ import React from 'react';
 // On importe ici les composants qu'on veut afficher
 
 import Machine from './Machine.js';
-import Addmachine from './Addmachine.js';
+import AddMachineForm from './Addmachine.js';
 import Produit from './Produit.js';
 
 // On peut aussi importer du CSS de la meme facon.
@@ -21,6 +21,7 @@ class App extends React.Component {
     constructor(props) {
     super(props);
     this.handleStatusChange = this.handleStatusChange.bind(this);
+    this.addMachineToState = this.addMachineToState.bind(this);
     this.state = { //On définit dans App un state
       machines: [ // On crée un objet machine avec plusieurs valeurs
          {
@@ -69,9 +70,17 @@ class App extends React.Component {
  }
  
   // Méthode pour ajouter un formulaire
-  addMachineToState(machine) {
+addMachineToState(machine) {
+     // 1. On copie le state existant
+     const machines = { ...this.state.machines };
+    //event.target = machines[machine].newMachine;
+    machines.newMachine = machines.addMachineToState;
+   // On applique au state
+    this.setState({ machines });
+     
     console.log("addMachineToState");
     console.log(machine);
+    console.log(machines);
 }
  
   
@@ -92,7 +101,7 @@ class App extends React.Component {
       
       <div className="main">
         
-          {/*<AddMachine addMachineToState={this.addMachineToState}/>*/}
+          <AddMachineForm addMachineToState={this.addMachineToState}/>
           {/*Compteurs*/}
           <div className="counter">
             <strong>{totalActive}</strong> / <strong>{total}</strong> Machines actives
@@ -110,10 +119,14 @@ class App extends React.Component {
                          key={this.state.machines[key].id}
                          index={this.state.machines[key].id}
                          handleStatusChange={this.handleStatusChange}
+                         addMachineToState={this.addMachineToState}
+                         newMachine={this.newMachine}
                          isActive={this.state.machines[key].isActive}/>
               )}
           </div>
-          <div className="counter">
+          
+          {/*Nombre de machines total */}
+          <div className="total">
              Nombre total de machines : <strong>{total}</strong> 
           </div>
         
