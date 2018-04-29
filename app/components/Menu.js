@@ -49,15 +49,8 @@ class App extends React.Component {
       
     };
     
-    // console.log(this.state);
-    // console.log(Object.keys(this.state.machines).map(obj => {
-    //   var rObj = {};
-    //   rObj[obj.key] = obj.value;
-    //   return rObj;
-    // }));
-  
- 
   }
+  
   // Méthode pour activer une machine
  handleStatusChange(key) {
     // 1. On copie le state existant
@@ -88,17 +81,23 @@ addMachineToState(machine) {
     
     //On voit que dans machine il y a bien le nom et le status
     console.log(machine);
+    
+    //On voit notre nouvelle machine 
     console.log(machines);
 }
 
 //Méthode pour supprimer une machine
-deletemachine(key) {
+deletemachine(id) {
     // 1. On copie le state existant
     const machines = { ...this.state.machines };
     // 2. On supprime la machine avec l'id correspondant
-     machines[this.machine].splice(key);
-  
-   // Pour vérifier la nouvelle collection dans la console :
+    
+    // machines[this.machine].splice(key);
+    //machines.delete(id);
+   console.log("hello");
+    machines[id].delete;
+    
+   console.log("bbbd");
    console.log({ machines });
    // 3. On applique cette nouvelle collection au state
    this.setState({ machines });

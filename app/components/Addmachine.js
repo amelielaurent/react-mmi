@@ -24,8 +24,8 @@ class AddMachineForm extends React.Component {
       <form ref={(input) => this.machineForm = input} onSubmit={(e) => this.onAddClick(e)} className="add-machine-form" >
         <input ref={(input) => this.name = input} type="text"  placeholder="Nom de la machine" />
         <select ref={(input) => this.status = input}>
-          <option value="active" isActive="true">Active</option>
-          <option value="inactive" isActive="false">Inactive</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
         </select>
         <button type="submit" className="btn">+ Ajouter une machine</button>
       </form>
