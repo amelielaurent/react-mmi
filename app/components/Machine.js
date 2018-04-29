@@ -36,9 +36,13 @@ class Machine extends React.Component {
     this.props.handleStatusChange(this.props.index);
    }
   
+  ondelete() {
+    this.props.deletemachine(this.props.index);
+  }
+  
   render() {
     // Dans tous les cas, afficher
-    //Enlever les divs qui affichait coucou
+
     // <button type="button" className="btn" onClick={(e) => this.handleClick(e)}> {this.state.isActive ? "ON" : "OFF" }  </button>
     return ( 
       
@@ -58,6 +62,8 @@ class Machine extends React.Component {
         }
          {/*<button onClick={(e) => this.onToggleClick(e)} type="button" className="btn"> {this.props.isActive ? "Désactiver" : "Activer"}
            </button>*/}
+        <button onClick={(e) => this.ondelete(e)} type="button" className="btn"> Supprimer
+           </button>
         
         
       </div>

@@ -22,6 +22,7 @@ class App extends React.Component {
     super(props);
     this.handleStatusChange = this.handleStatusChange.bind(this);
     this.addMachineToState = this.addMachineToState.bind(this);
+    this.deletemachine = this.deletemachine.bind(this);
     this.state = { //On définit dans App un state
       machines: [ // On crée un objet machine avec plusieurs valeurs
          {
@@ -73,17 +74,36 @@ class App extends React.Component {
 addMachineToState(machine) {
      // 1. On copie le state existant
      const machines = { ...this.state.machines };
-    //event.target = machines[machine].newMachine;
+     
+     //On donne un id unique a la nouvelle machine
+    //machines[machine].id = 3;
+     
+    //On insère une nouvelle machine dans le tableau machines
      machines.newMachine = machine;
     
    // On applique au state
     this.setState({ machines });
      
     console.log("addMachineToState");
+    
+    //On voit que dans machine il y a bien le nom et le status
     console.log(machine);
     console.log(machines);
 }
- 
+
+//Méthode pour supprimer une machine
+deletemachine(key) {
+    // 1. On copie le state existant
+    const machines = { ...this.state.machines };
+    // 2. On supprime la machine avec l'id correspondant
+     machines[this.machine].splice(key);
+  
+   // Pour vérifier la nouvelle collection dans la console :
+   console.log({ machines });
+   // 3. On applique cette nouvelle collection au state
+   this.setState({ machines });
+    
+} 
   
   render() {
     // Calcul des compteurs
@@ -121,6 +141,7 @@ addMachineToState(machine) {
                          index={this.state.machines[key].id}
                          handleStatusChange={this.handleStatusChange}
                          addMachineToState={this.addMachineToState}
+                         deletemachine={this.deletemachine}
                          newMachine={this.newMachine}
                          isActive={this.state.machines[key].isActive}/>
               )}
