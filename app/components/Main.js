@@ -1,3 +1,5 @@
+/********** Main.js ************/
+
 import React, { Component } from "react";
 import {
   Route,
@@ -12,7 +14,7 @@ import Machine from "./Machine.js";
 import Header from './header.js';
 import Footer from './footer.js';
 
-
+//Classe pour le menu de navigation
 class Main extends Component {
   render() {
     return (

@@ -1,6 +1,6 @@
 /**
  *
- * App.js
+ * Footer.js
  *
  */
 import React from 'react';
@@ -17,5 +17,5 @@ class Footer extends React.Component {
   }
 }
 
-// Le composant sera accessible avec le nom "Machine"
+// Le composant sera accessible avec le nom "Footer"
 export default Footer;

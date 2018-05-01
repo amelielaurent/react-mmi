@@ -1,3 +1,4 @@
+/********** Produit.js *************/
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { compose, withProps } from "recompose";
@@ -15,6 +16,7 @@ const AnyReactComponent = ({ text }) =>  <div style={{
     {text}
   </div>;
 
+// Classe Produit dans laquelle affichage de la google maps
 class Produit extends Component {
   static defaultProps = {
     center: {
@@ -34,8 +36,8 @@ class Produit extends Component {
           defaultZoom={this.props.zoom}
         >
           <AnyReactComponent
-            lat={59.95}
-            lng={30.33}
+            lat={59.95} //{this.props.lat}
+            lng={30.33} //{this.props.lng}
             text={'Kreyser Avrora'}
           />
         </GoogleMapReact>

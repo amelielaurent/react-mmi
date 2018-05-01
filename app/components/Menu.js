@@ -1,6 +1,6 @@
 /**
  *
- * App.js
+ * Menu.js
  *
  */
 import React from 'react';
@@ -12,7 +12,6 @@ import Machine from './Machine.js';
 import AddMachineForm from './Addmachine.js';
 import Produit from './Produit.js';
 
-// On peut aussi importer du CSS de la meme facon.
 
 import { BrowserRouter, Router, Route, browserHistory } from 'react-router';
 
@@ -98,7 +97,7 @@ deletemachine(machine) {
     //machines[machine].id = machines.delete;
     
     //Supprime la machine visuellement mais ça marche plus très bien après, fonction delete
-   // machines[machine] = delete(machines.id);
+    machines[machine] = delete(machines.id);
     
     // Essai avec la méthode splice pour restructurer le tableau une fois l'élément supprimé, mais ne marche pas mieux
      //machines[machine] = [machine].splice(0,machines[machine.id]);

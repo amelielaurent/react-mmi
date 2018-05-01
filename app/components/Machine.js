@@ -1,6 +1,6 @@
 /**
  *
- * App.js
+ * Machine.js
  *
  */
 import React from 'react';
@@ -12,9 +12,6 @@ class Machine extends React.Component {
    constructor(props) {
     super(props);
     this.state = {isActive: true};
-
-    // This binding is necessary to make `this` work in the callback
-    //this.handleClick = this.handleClick.bind(this);
   }
   
   /*handleClick (){
@@ -41,10 +38,7 @@ class Machine extends React.Component {
   }
   
   render() {
-    // Dans tous les cas, afficher
-
-    // <button type="button" className="btn" onClick={(e) => this.handleClick(e)}> {this.state.isActive ? "ON" : "OFF" }  </button>
-    return ( 
+     return ( 
       
       
     <div className="Machine hey"> 
@@ -60,8 +54,7 @@ class Machine extends React.Component {
         className='custom-classname'
          onClick={(e) => this.onToggleClick(e)}/>
         }
-         {/*<button onClick={(e) => this.onToggleClick(e)} type="button" className="btn"> {this.props.isActive ? "Désactiver" : "Activer"}
-           </button>*/}
+         {/*Button supprimer*/}
         <button onClick={(e) => this.ondelete(e)} type="button" className="btn"> Supprimer
            </button>
         
