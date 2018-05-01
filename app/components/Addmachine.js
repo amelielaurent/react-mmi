@@ -14,7 +14,6 @@ class AddMachineForm extends React.Component {
     };
 
     // On envoie cette variable via des props à la méthode addMachineToState()
-    // ...
     this.props.addMachineToState(newMachine);
   }
 

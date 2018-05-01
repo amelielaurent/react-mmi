@@ -28,21 +28,21 @@ class App extends React.Component {
          {
           id:0,
           name: "Machine à café",
-          position: { lat: -34.397, lng: 150.644 },
+          position: { lat: 59.95, lng: 30.33 },
           isActive: true
         },
         
          {
           id:1,
           name: "Machine à chocolat chaud",
-          position: { lat: -85.397, lng: 100.644 },
+          position: { lat: 59.95, lng: 100.644 },
           isActive: false
         },
         
          {
           id:2,
           name: "Machine à thé",
-          position: { lat: -20.255, lng: 50.258 },
+          position: { lat: 59.95, lng: 50.258 },
           isActive: false
         }
       ]
@@ -68,8 +68,10 @@ addMachineToState(machine) {
      // 1. On copie le state existant
      const machines = { ...this.state.machines };
      
-     //On donne un id unique a la nouvelle machine
-    //machines[machine].id = 3;
+     //On donne un id unique a la nouvelle machine qui est son propre nom
+     machine.id= machine.name;
+     
+     //machine.isActive = machine.status;
      
     //On insère une nouvelle machine dans le tableau machines
      machines.newMachine = machine;
@@ -79,25 +81,28 @@ addMachineToState(machine) {
      
     console.log("addMachineToState");
     
-    //On voit que dans machine il y a bien le nom et le status
+    //On voit que dans machine il y a bien le nom, le status, et l'id
     console.log(machine);
     
-    //On voit notre nouvelle machine 
+    //On voit notre nouvelle machine dans le tableau de machines
     console.log(machines);
 }
 
 //Méthode pour supprimer une machine
-deletemachine(id) {
+deletemachine(machine) {
     // 1. On copie le state existant
     const machines = { ...this.state.machines };
     // 2. On supprime la machine avec l'id correspondant
+   
+   //La je supprime l'id de la machine sur laquelle je clique 
+    //machines[machine].id = machines.delete;
     
-    // machines[this.machine].splice(key);
-    //machines.delete(id);
-   console.log("hello");
-    machines[id].delete;
+    //Supprime la machine visuellement mais ça marche plus très bien après, fonction delete
+   // machines[machine] = delete(machines.id);
     
-   console.log("bbbd");
+    // Essai avec la méthode splice pour restructurer le tableau une fois l'élément supprimé, mais ne marche pas mieux
+     //machines[machine] = [machine].splice(0,machines[machine.id]);
+     
    console.log({ machines });
    // 3. On applique cette nouvelle collection au state
    this.setState({ machines });
@@ -120,7 +125,7 @@ deletemachine(id) {
       
       
       <div className="main">
-        
+        {/*Formulaire*/}
           <AddMachineForm addMachineToState={this.addMachineToState}/>
           {/*Compteurs*/}
           <div className="counter">
@@ -138,6 +143,9 @@ deletemachine(id) {
                 <Machine name={this.state.machines[key].name}
                          key={this.state.machines[key].id}
                          index={this.state.machines[key].id}
+                         position={this.state.machines[key].position}
+                         total={this.total}
+                         totalActive={this.totalActive}
                          handleStatusChange={this.handleStatusChange}
                          addMachineToState={this.addMachineToState}
                          deletemachine={this.deletemachine}

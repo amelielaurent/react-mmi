@@ -17,7 +17,6 @@ export default class Header extends React.Component {
     <div className="Header">
      <p>COFFEE APP</p>
      
-     
     </div>
     );
   }
